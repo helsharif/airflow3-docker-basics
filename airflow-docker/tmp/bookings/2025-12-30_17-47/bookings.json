@@ -1,0 +1,86 @@
+[
+    {
+        "booking_id": 1,
+        "listing_id": 2,
+        "user_id": 2103,
+        "booking_time": "",
+        "status": "cancelled"
+    },
+    {
+        "booking_id": 2,
+        "listing_id": 2,
+        "user_id": "",
+        "booking_time": "2025-12-30 17:47:00",
+        "status": "pending"
+    },
+    {
+        "booking_id": "",
+        "listing_id": "",
+        "user_id": 3340,
+        "booking_time": "",
+        "status": ""
+    },
+    {
+        "booking_id": "",
+        "listing_id": 3,
+        "user_id": 4960,
+        "booking_time": "",
+        "status": "cancelled"
+    },
+    {
+        "booking_id": 5,
+        "listing_id": "",
+        "user_id": 4904,
+        "booking_time": "",
+        "status": "error"
+    },
+    {
+        "booking_id": 6,
+        "listing_id": 1,
+        "user_id": "",
+        "booking_time": "2025-12-30 17:47:00",
+        "status": "pending"
+    },
+    {
+        "booking_id": 7,
+        "listing_id": 3,
+        "user_id": "",
+        "booking_time": "2025-12-30 17:47:00",
+        "status": ""
+    },
+    {
+        "booking_id": "",
+        "listing_id": "",
+        "user_id": 1287,
+        "booking_time": "2025-12-30 17:47:00",
+        "status": "cancelled"
+    },
+    {
+        "booking_id": "",
+        "listing_id": "",
+        "user_id": "",
+        "booking_time": "2025-12-30 17:47:00",
+        "status": "pending"
+    },
+    {
+        "booking_id": 10,
+        "listing_id": 4,
+        "user_id": "",
+        "booking_time": "",
+        "status": "pending"
+    },
+    {
+        "booking_id": 11,
+        "listing_id": 5,
+        "user_id": "",
+        "booking_time": "2025-12-30 17:47:00",
+        "status": "pending"
+    },
+    {
+        "booking_id": 12,
+        "listing_id": 1,
+        "user_id": 2820,
+        "booking_time": "2025-12-30 17:47:00",
+        "status": "cancelled"
+    }
+]

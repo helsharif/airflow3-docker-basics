@@ -1,0 +1,42 @@
+[
+    {
+        "booking_id": 1,
+        "anomalies": [
+            "Missing booking_id",
+            "Invalid status: error"
+        ]
+    },
+    {
+        "booking_id": 2,
+        "anomalies": [
+            "Missing listing_id",
+            "Missing booking_time"
+        ]
+    },
+    {
+        "booking_id": 3,
+        "anomalies": [
+            "Missing status"
+        ]
+    },
+    {
+        "booking_id": 6,
+        "anomalies": [
+            "Missing listing_id"
+        ]
+    },
+    {
+        "booking_id": 7,
+        "anomalies": [
+            "Missing booking_id",
+            "Missing listing_id"
+        ]
+    },
+    {
+        "booking_id": 8,
+        "anomalies": [
+            "Missing booking_id",
+            "Missing listing_id"
+        ]
+    }
+]

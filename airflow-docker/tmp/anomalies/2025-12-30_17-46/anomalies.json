@@ -1,0 +1,54 @@
+[
+    {
+        "booking_id": 0,
+        "anomalies": [
+            "Missing user_id",
+            "Invalid status: error"
+        ]
+    },
+    {
+        "booking_id": 1,
+        "anomalies": [
+            "Missing booking_id"
+        ]
+    },
+    {
+        "booking_id": 3,
+        "anomalies": [
+            "Missing booking_id",
+            "Missing booking_time"
+        ]
+    },
+    {
+        "booking_id": 4,
+        "anomalies": [
+            "Missing booking_time"
+        ]
+    },
+    {
+        "booking_id": 5,
+        "anomalies": [
+            "Invalid status: error"
+        ]
+    },
+    {
+        "booking_id": 8,
+        "anomalies": [
+            "Missing booking_id",
+            "Missing status"
+        ]
+    },
+    {
+        "booking_id": 9,
+        "anomalies": [
+            "Missing user_id"
+        ]
+    },
+    {
+        "booking_id": 10,
+        "anomalies": [
+            "Missing booking_id",
+            "Missing user_id"
+        ]
+    }
+]

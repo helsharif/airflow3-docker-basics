@@ -1,0 +1,5 @@
+{"timestamp":"2025-12-30T17:46:01.565807Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2025-12-30T17:46:01.566671Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/data_validation_dag_airflow3.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2025-12-30T17:46:01.608026Z","level":"info","event":"Completed validation for /opt/airflow/tmp/bookings/2025-12-30_17-46/bookings.json. Anomalies found: 8","logger":"task.stdout"}
+{"timestamp":"2025-12-30T17:46:01.608495Z","level":"info","event":"Result written to /opt/airflow/tmp/anomalies/2025-12-30_17-46/anomalies.json","logger":"task.stdout"}
+{"timestamp":"2025-12-30T17:46:01.608037Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.decorators.python._PythonDecoratedOperator","filename":"python.py","lineno":217}

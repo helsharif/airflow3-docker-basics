@@ -1,0 +1,86 @@
+[
+    {
+        "booking_id": 0,
+        "anomalies": [
+            "Missing booking_id",
+            "Invalid status: unknown"
+        ]
+    },
+    {
+        "booking_id": 1,
+        "anomalies": [
+            "Missing listing_id"
+        ]
+    },
+    {
+        "booking_id": 2,
+        "anomalies": [
+            "Missing booking_id",
+            "Missing status"
+        ]
+    },
+    {
+        "booking_id": 3,
+        "anomalies": [
+            "Missing status"
+        ]
+    },
+    {
+        "booking_id": 4,
+        "anomalies": [
+            "Missing user_id",
+            "Missing status"
+        ]
+    },
+    {
+        "booking_id": 5,
+        "anomalies": [
+            "Missing booking_id",
+            "Missing listing_id",
+            "Missing user_id",
+            "Invalid status: unknown"
+        ]
+    },
+    {
+        "booking_id": 6,
+        "anomalies": [
+            "Missing user_id"
+        ]
+    },
+    {
+        "booking_id": 7,
+        "anomalies": [
+            "Missing listing_id",
+            "Missing booking_time",
+            "Missing status"
+        ]
+    },
+    {
+        "booking_id": 8,
+        "anomalies": [
+            "Missing user_id",
+            "Missing booking_time"
+        ]
+    },
+    {
+        "booking_id": 9,
+        "anomalies": [
+            "Missing listing_id"
+        ]
+    },
+    {
+        "booking_id": 10,
+        "anomalies": [
+            "Missing booking_id",
+            "Missing listing_id"
+        ]
+    },
+    {
+        "booking_id": 11,
+        "anomalies": [
+            "Missing user_id",
+            "Missing booking_time",
+            "Invalid status: error"
+        ]
+    }
+]
