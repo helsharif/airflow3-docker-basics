@@ -1,150 +1,131 @@
 
-# 🚀 Apache Airflow Data Quality Pipeline (Dockerized)
-**Airflow 3.1.5 | Docker Compose | Task Orchestration | Data Validation | Data Engineering**
+# 🚀 End-to-End Data Engineering with Docker, Apache Airflow & Spark
 
-This project demonstrates a **production-style data quality pipeline** built using **Apache Airflow 3.1.5** running inside a fully containerized **Docker** environment. It continuously generates synthetic (AirBnB style) booking data, validates it for quality issues, and stores structured anomaly reports—showcasing modern orchestration, scheduling, and pipeline reliability techniques.
+**Apache Airflow 3.1.5 | Docker Compose | Spark | Scheduling | ETL Orchestration | Data Quality | Portfolio Project**  
 
-This work was completed while advancing my Data Engineering skillset and serves as a portfolio demonstration of:
-- Designing orchestrated data pipelines with Airflow
-- Implementing automated quality checks
-- Running Airflow in a local reproducible Docker environment
-- Managing schedules, context handling, logging, and reproducibility
-- Working with modern Airflow SDK patterns
+This repository demonstrates **modern, production-style data engineering pipelines** orchestrated using **Apache Airflow running in Docker**, with an advanced extension that integrates **Apache Spark processing** for scalable data transformation.
 
----
+It showcases my ability to:
+- Design and orchestrate automated data pipelines
+- Run Airflow fully containerized for portability and reproducibility
+- Generate and validate streaming‑style synthetic booking data
+- Execute distributed data processing with Spark
+- Manage real‑world engineering concerns like scheduling, dependencies, data storage, and logging
+- Work confidently with the **new Airflow 3 SDK**
 
-## 🎯 What This Pipeline Does
-✔️ Spins up **Airflow via Docker Compose**  
-✔️ Runs a scheduled DAG **every minute**  
-✔️ Generates synthetic bookings data  
-✔️ Performs automated data validation checks  
-✔️ Detects missing + invalid fields  
-✔️ Outputs structured anomaly reports  
-✔️ Stores generated + validated data in mounted host volumes  
+This project is intentionally structured to simulate real engineering workflows and demonstrates skills relevant to **Data Engineering, Analytics Engineering, and Machine Learning Engineering roles**.
 
 ---
 
-## 🧠 Key Engineering Concepts Demonstrated
-- Airflow DAG design using the **new Airflow 3 SDK (`airflow.sdk`)**
-- Working with **tasks, dependencies, and scheduling**
-- Writing/reading files across containers using mounted Docker volumes
-- Clean, maintainable Python task functions
-- Reusable helper utilities for path and execution context handling
+## 📌 Two Major Implementations in This Repo
+
+### 1️⃣ Airflow + Docker → Data Quality Pipeline
+Located in:
+```
+airflow-docker/
+```
+
+This pipeline:
+- Spins up Airflow in Docker
+- Generates AirBnB‑style synthetic booking data
+- Performs automated data validation
+- Writes structured anomaly reports
+- Demonstrates scheduling, logging, reliability, and reproducibility
+
+#### 🧠 Key Concepts Demonstrated
+- Airflow 3 (`airflow.sdk`) DAG development
+- Task dependency design
+- Mounted Docker volume data management
+- Automated validation logic
+- Realistic pipeline structure & engineering discipline
+
+---
+
+### 2️⃣ Airflow + Docker + Spark → ETL & Aggregation Pipeline
+Located in:
+```
+airflow-docker-spark/
+```
+
+This is the newest addition to the project and represents a **step into scalable distributed data processing**.
+
+This pipeline:
+- Runs fully in Docker
+- Uses Airflow to orchestrate Spark jobs
+- Generates hourly booking data via Airflow (based on AirBnB data from Broward County, Florida USA see: https://insideairbnb.com/broward-county/ )
+- Joins it with AirBnB listings data inside Spark
+- Computes **bookings per listing + summary metrics**
+- Writes output as structured results
+
+#### 🧠 Key Concepts Demonstrated
+- SparkSubmitOperator
+- Local Spark cluster execution
+- CLI argument handling between Airflow → Spark
+- Data joins, aggregation, and output writing
+- End‑to‑end orchestration: generate → process → output
+
 
 ---
 
 ## 🧰 Tech Stack
-- **Apache Airflow 3.1.5**
-- **Docker + Docker Compose**
-- Python
-- JSON data storage
+- Apache Airflow 3.1.5 (Latest stable release as of December 12, 2025)
+- Docker & Docker Compose
+- Apache Spark 4.1 (Latest stable release as of December 16, 2025)
+- Python (version 3.12)
+- JSON / CSV data outputs
 
 ---
 
-## 📂 Project Structure
+## 📂 Repository Structure
 ```
 ├── airflow-docker/
-    ├── dags/
-    │   └── data_validation_dag_airflow3.py
-    ├── tmp/
-    │   ├── bookings/
-    │   └── anomalies/
-    ├── logs/
-    ├── config/
-    ├── docker-compose.yaml
-    └── README.md
+│   └── Airflow + Docker Data Quality Implementation
+│
+├── airflow-docker-spark/
+│   └── Airflow + Spark ETL Implementation
+│
+├── Notes on Airflow and Docker.docx
+├── Notes on Airflow-Docker-Spark.docx
+├── README.md
 ```
 
 ---
 
-## 🔎 Data Quality Logic
-Each generated booking record is validated for:
-- Missing `booking_id`
-- Missing `listing_id`
-- Missing `user_id`
-- Missing `booking_time`
-- Missing `status`
-- Invalid `status` values  
-  (must be: `confirmed`, `pending`, or `cancelled`)
-
-Any violations are written to structured JSON anomaly files, including:
-- record index
-- list of validation failures
+## ▶️ How to Run
+Each implementation folder contains its own instructions and compose setup.  
+Simply navigate into the desired project and follow the provided steps.
 
 ---
 
-## ▶️ Running the Project
+## 💡 Why This Project Matters
+This project reflects:
+- Experience with real (and modern version) orchestration tools (Airflow)
+- Comfort designing reliable pipelines
+- Ability to integrate multiple systems
+- Hands‑on Spark processing (and troubleshooting!)
 
-### 1️⃣ Clone the Repository
-```
-git clone <repo-url>
-cd <repo>
-```
-
-### 2️⃣ Start Airflow
-Navigate to the 'airflow-docker' folder in command line and run:
-```
-docker compose up airflow-init
-docker compose up -d
-```
-
-### 3️⃣ Open Airflow UI
-In a web-browser Navigate to:
-```
-http://localhost:8080
-```
-Default credentials:
-```
-user: airflow
-pass: airflow
-```
-
-### 4️⃣ Enable the DAG
-Turn on:
-```
-data_quality_pipeline
-```
-
----
-
-## 📁 Where the Data Lives
-Synthetic data and anomaly outputs are written to **host-mounted volumes**, meaning you can inspect results directly from your machine.
-
-```
-tmp/bookings/<timestamp>/bookings.json
-tmp/anomalies/<timestamp>/anomalies.json
-```
-
-This mapping is configured via Docker volumes and ensures reproducibility across environments.
-
----
-
-## 🧪 Validation Output Example
-```json
-[
-  {
-    "booking_id": 2,
-    "anomalies": [
-      "Missing user_id",
-      "Invalid status: 'error'"
-    ]
-  }
-]
-```
+This aligns strongly with roles involving:
+- Data Engineering
+- Analytics / Platform Engineering
+- ML Pipelines & MLOps
+- Cloud & ETL Engineering
 
 ---
 
 ## 🧠 Learning Outcomes
-Through this build, I strengthened practical experience in:
-- Building reliable Airflow pipelines
-- Understanding Airflow basics (DAGs, tasks, schedulers, executors)
-- Dockerized infrastructure for data engineering
-- Implementing automated data quality enforcement
-- Designing pipelines aligned with real-world engineering workflows
+Through this work I strengthened capabilities in:
+- Workflow orchestration & design
+- Distributed compute pipeline execution
+- Dockerized engineering environments
+- Airflow DAG design using modern SDKs
+- Writing scalable & maintainable data pipelines
 
 ---
 
 ## 🤝 Let’s Connect
-If you’d like to discuss:
-Data Engineering • Airflow • ML Pipelines • Analytics Engineering • Cloud Data Systems  
-Feel free to reach out!
+If you'd like to discuss:
+Data Engineering • Spark • Airflow • ETL Pipelines • Cloud Data Systems
+
+---
+
+⭐ If you found this interesting, feel free to ⭐ the repo!
