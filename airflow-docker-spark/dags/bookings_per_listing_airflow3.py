@@ -11,6 +11,8 @@ import json
 from airflow.sdk import dag, task, get_current_context
 from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
 
+from airflow.providers.standard.sensors.filesystem import FileSensor # to incorporate file sensor
+
 TMP_PATH = "/opt/airflow/tmp"  # plain string makes life easier
 
 @dag(
@@ -59,6 +61,14 @@ def bookings_spark_pipeline():
 
         print(f"Generated bookings data written to {file_path}")
         return file_path  # optional, but handy for debugging / future use
+    
+    wait_for_listings_file = FileSensor(
+        task_id="wait_for_listings_file",
+        fs_conn_id="local_fs",  # connection to local filesystem
+        filepath=f"{TMP_PATH}/airbnb_data/listings.csv.gz",
+        poke_interval=30,  # check every 30 seconds
+        timeout=600,  # timeout after 10 minutes if file not found
+    )
 
     spark_job = SparkSubmitOperator(
         task_id="process_listings_and_bookings",
@@ -78,6 +88,7 @@ def bookings_spark_pipeline():
 
     bookings_file = generate_bookings()
     bookings_file >> spark_job
+    wait_for_listings_file >> spark_job
 
 
 dag_instance = bookings_spark_pipeline()
